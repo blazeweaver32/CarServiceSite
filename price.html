@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+
+<body>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+    <main_title_repair><h1>Наши цены</h1></main_title_repair>
+    <table class="price-table">
+        <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Цена (руб.)</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ремонт тормозного цилиндра</td>
+                <td>2500</td>
+                <td>Качественный ремонт цилиндра</td>
+            </tr>
+            <tr>
+                <td>Ремонт подвески</td>
+                <td>3000</td>
+                <td>Высококачественный ремонт</td>
+            </tr>
+            <tr>
+                <td>Современные домкраты</td>
+                <td>1500</td>
+                <td>Подъем автомобиля</td>
+            </tr>
+            <tr>
+                <td>Сварка деталей</td>
+                <td>3500</td>
+                <td>Надежное соединение</td>
+            </tr>
+            <tr>
+                <td>Ремонт бампера</td>
+                <td>2000</td>
+                <td>Выпрямление и запайка</td>
+            </tr>
+            <tr>
+                <td>Шумоизоляция дверей</td>
+                <td>4500</td>
+                <td>Улучшение шумоизоляции</td>
+            </tr>
+            <tr>
+                <td>Выездной ремонт колес</td>
+                <td>3000</td>
+                <td>Ремонт на месте</td>
+            </tr>
+            <tr>
+                <td>Запуск автомобиля</td>
+                <td>2000</td>
+                <td>Заведем в любом месте</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button onclick="downloadCSV()">Скачать таблицу в формате Excel</button>
+
+    
+
+    <script>
+function downloadCSV() {
+    const data = 'Услуга;Цена (руб.);Описание\n' +
+                'Ремонт тормозного цилиндра;2500;Качественный ремонт цилиндра\n' +
+                'Ремонт подвески;3000;Высококачественный ремонт\n' +
+                'Современные домкраты;1500;Подъем автомобиля\n' +
+                'Сварка деталей;3500;Надежное соединение\n' +
+                'Ремонт бампера;2000;Выпремление и запайка\n' +
+                'Шумоизоляция дверей;4500;Улучшение шумоизоляции\n' +
+                'Выездной ремонт колес;3000;Ремонт на месте\n' +
+                'Запуск автомобиля;2000;Заведем в любом месте';
+
+    const blob = new Blob([data], { type: 'text/csv; charset=utf-8' });
+    
+
+    const url = URL.createObjectURL(blob);
+    
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'prices.csv');
+    
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+var logo = document.getElementById('logo');
+
+
+logo.addEventListener('click', function() {
+
+    window.location.href = 'index.html';
+});
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+
+<body>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+    <main_title_repair><h1>Оставьте отзыв о наших услугах</h1></main_title_repair>
+    <form id="reviewForm">
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        
+
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        
+
+        <label for="service">Выберите услугу:</label>
+        <select id="service" name="service" required>
+            <option value="">Выберите услугу</option>
+            <option value="Ремонт тормозного цилиндра">Ремонт тормозного цилиндра</option>
+            <option value="Ремонт подвески">Ремонт подвески</option>
+            <option value="Современные домкраты">Современные домкраты</option>
+            <option value="Сварка деталей">Сварка деталей</option>
+            <option value="Ремонт бампера">Ремонт бампера</option>
+            <option value="Шумоизоляция дверей">Шумоизоляция дверей</option>
+            <option value="Выездной ремонт колес">Выездной ремонт колес</option>
+            <option value="Запуск автомобиля">Запуск автомобиля</option>
+        </select>
+        
+
+        <label for="review">Отзыв:</label>
+        <textarea id="review" name="review" rows="4" required></textarea>
+        
+
+        <button type="submit">Отправить</button>
+        <button type="reset" id="clearBtn">Очистить</button>
+    </form>
+    
+    <!-- Сообщение о модерации -->
+    <div id="moderationMessage" style="display: none; text-align: center; margin-top: 20px;">
+        Ваш отзыв отправлен на модерацию.
+    </div>
+
+    <script>
+
+        const form = document.getElementById('reviewForm');
+        const moderationMessage = document.getElementById('moderationMessage');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвратить отправку формы
+            
+            // Показать сообщение о модерации
+            moderationMessage.style.display = 'block';
+            
+            // Очистить форму
+            form.reset();
+        });
+
+var logo = document.getElementById('logo');
+
+
+logo.addEventListener('click', function() {
+
+    window.location.href = 'index.html';
+});
+
+    </script>
+</body>
+
+</html>

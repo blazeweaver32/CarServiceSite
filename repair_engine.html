@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+
+<body>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+
+    <main_title_repair><h1>Ремонт двигателя</h1></main_title_repair>
+    <main_blocks>
+        <button id="prevButton" class="navButton" onclick="prevImage()">←</button>
+        
+
+        <div class="item_block_repair" id="image-container">
+            <img id="currentImage" src="./data/photos/image1.jpg" alt="Изображение 1">
+        </div>
+
+        <button id="nextButton" class="navButton" onclick="nextImage()">→</button>
+
+
+        <div class="item_block_repair description-container" id="description_block_repair">
+            Выберите изображение слева, чтобы увидеть описание.
+        </div>
+    </main_blocks>
+
+    <script>
+        const descriptions = [
+            `<h2>Ремонт тормозного цилиндра и усилителя</h2>
+            <b>Ремонт тормозного цилиндра</b>
+            <ul>
+                <li>Диагностика и разборка цилиндра</li>
+                <li>Очистка и проверка деталей</li>
+                <li>Замена изношенных компонентов</li>
+                <li>Сборка и тестирование</li>
+                <li>Установка и регулировка</li>
+            </ul>
+            <b>Ремонт усилителя тормозов</b>
+            <ul>
+                <li>Диагностика и разборка усилителя</li>
+                <li>Очистка и проверка компонентов</li>
+                <li>Замена мембран и клапанов</li>
+                <li>Сборка и тестирование</li>
+                <li>Установка и проверка</li>
+            </ul>`,
+            `<h2>Ремонт системы охлаждения</h2>
+            <b>Диагностика и ремонт</b>
+            <ul>
+                <li>Проверка системы охлаждения на наличие утечек</li>
+                <li>Очистка радиатора и других компонентов</li>
+                <li>Замена термостата, радиатора или водяного насоса при необходимости</li>
+                <li>Промывка системы охлаждения и замена охлаждающей жидкости</li>
+                <li>Тестирование системы и проверка на эффективность работы</li>
+            </ul>
+
+            <b>Обслуживание и профилактика</b>
+            <ul>
+                <li>Регулярная проверка уровня охлаждающей жидкости</li>
+                <li>Очистка или замена фильтров системы охлаждения</li>
+                <li>Проверка и замена шлангов и соединений</li>
+                <li>Профилактическое обслуживание для предотвращения перегрева двигателя</li>
+            </ul>`,
+            `<h2>Гараж в деревне Красный Рог</h2>
+            <b>Расположение и особенности</b>
+            <ul>
+                <li>Гараж находится в деревне Красный Рог, что обеспечивает тихую и спокойную атмосферу.</li>
+                <li>Теплый гараж, что позволяет проводить ремонтные работы в комфортных условиях круглый год.</li>
+                <li>Оснащен всеми необходимыми инструментами для ремонта и технического обслуживания автомобилей.</li>
+            </ul>
+
+            <b>Удобство и обслуживание</b>
+            <ul>
+                <li>Гараж просторный, что обеспечивает достаточное место для работы и хранения инструментов.</li>
+                <li>Имеются специализированные инструменты для выполнения разнообразных работ.</li>
+                <li>В гараже есть возможность проводить диагностику и ремонт разных видов транспорта.</li>
+            </ul>
+`
+        ];
+
+        // Список путей к изображениям
+        const imagePaths = [
+            './data/photos/repair_engine_1.jpg',
+            './data/photos/repair_engine_2.jpg',
+            './data/photos/repair_engine_3.jpg'
+        ];
+
+        // Текущий индекс изображения
+        let currentIndex = 0;
+
+        // Обновление изображения и описания
+        function updateContent() {
+            const imageElement = document.getElementById('currentImage');
+            const descriptionElement = document.getElementById('description_block_repair');
+
+            imageElement.src = imagePaths[currentIndex];
+            descriptionElement.innerHTML = descriptions[currentIndex];  
+}
+
+        // Переключение на следующее изображение
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imagePaths.length;
+            updateContent();
+        }
+
+        // Переключение на предыдущее изображение
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
+            updateContent();
+        }
+
+    window.onload = function() {
+    updateContent();
+};
+
+var logo = document.getElementById('logo');
+
+// Добавьте обработчик событий 'click' к элементу
+logo.addEventListener('click', function() {
+    // Перенаправьте пользователя на страницу 'index.html' при нажатии
+    window.location.href = 'index.html';
+});
+    </script>
+</body>
+
+</html>

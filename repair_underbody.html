@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+
+<body>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+    <main_title_repair><h1>Кузовной ремонт</h1></main_title_repair>
+    <main_blocks>
+        <button id="prevButton" class="navButton" onclick="prevImage()">←</button>
+        
+
+        <div class="item_block_repair" id="image-container">
+            <img id="currentImage" src="./data/photos/image1.jpg" alt="Изображение 1">
+        </div>
+
+        <button id="nextButton" class="navButton" onclick="nextImage()">→</button>
+
+
+        <div class="item_block_repair description-container" id="description_block_repair">
+            Выберите изображение слева, чтобы увидеть описание.
+        </div>
+    </main_blocks>
+
+    <script>
+        const descriptions = [
+            `
+<h2>Сварка днища автомобиля</h2>
+<ul>
+    <li>Качественно свариваем поврежденные участки днища.</li>
+    <li>Используем современные аппараты для надежных соединений.</li>
+    <li>Гарантируем прочность и долговечность результатов.</li>
+</ul>
+
+`,
+            `<h2>Ремонт бампера</h2>
+<ul>
+    <li>Выпрямляем поврежденный бампер для восстановления его формы.</li>
+    <li>Запаиваем трещины и разрывы для прочности и эстетичного вида.</li>
+    <li>Обеспечиваем надежный ремонт с сохранением оригинального дизайна.</li>
+</ul>
+
+`,
+            `<h2>Восстановление кузова автомобиля</h2>
+<ul>
+    <li>Полное восстановление кузова, включая ремонт вмятин и царапин.</li>
+    <li>Восстанавливаем первоначальный вид и геометрию кузова.</li>
+    <li>Используем качественные материалы и современные технологии.</li>
+    <li>Гарантируем высокое качество работы и долговечность результатов.</li>
+</ul>
+
+`
+        ];
+
+        // Список путей к изображениям
+        const imagePaths = [
+            './data/photos/repair_underbody_1.jpg',
+            './data/photos/repair_underbody_2.jpg',
+            './data/photos/repair_underbody_3.jpg'
+        ];
+
+        // Текущий индекс изображения
+        let currentIndex = 0;
+
+        // Обновление изображения и описания
+        function updateContent() {
+            const imageElement = document.getElementById('currentImage');
+            const descriptionElement = document.getElementById('description_block_repair');
+
+            imageElement.src = imagePaths[currentIndex];
+            descriptionElement.innerHTML = descriptions[currentIndex];  
+}
+
+        // Переключение на следующее изображение
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imagePaths.length;
+            updateContent();
+        }
+
+        // Переключение на предыдущее изображение
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
+            updateContent();
+        }
+
+    window.onload = function() {
+    updateContent();
+};
+
+var logo = document.getElementById('logo');
+
+// Добавьте обработчик событий 'click' к элементу
+logo.addEventListener('click', function() {
+    // Перенаправьте пользователя на страницу 'index.html' при нажатии
+    window.location.href = 'index.html';
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+
+<body>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+    <main_title_repair><h1>Ремонт подвески</h1></main_title_repair>
+    <main_blocks>
+        <button id="prevButton" class="navButton" onclick="prevImage()">←</button>
+        
+
+        <div class="item_block_repair" id="image-container">
+            <img id="currentImage" src="./data/photos/image1.jpg" alt="Изображение 1">
+        </div>
+
+        <button id="nextButton" class="navButton" onclick="nextImage()">→</button>
+
+
+        <div class="item_block_repair description-container" id="description_block_repair">
+            Выберите изображение слева, чтобы увидеть описание.
+        </div>
+    </main_blocks>
+
+    <script>
+        const descriptions = [
+            `
+            <b>Профессиональное качество и обслуживание</b>
+            <ul>
+                <li>Мы выполняем ремонт подвески на высшем уровне качества, обеспечивая безопасность и комфорт вождения.</li>
+                <li>В нашем распоряжении имеются все необходимые инструменты и оборудование для эффективного и точного ремонта.</li>
+                <li>Команда опытных специалистов тщательно диагностирует и устраняет проблемы с подвеской вашего автомобиля.</li>
+            </ul>
+
+            <b>Эстетика и аккуратность</b>
+            <ul>
+                <li>Мы заботимся о чистоте и аккуратности во время ремонта, оставляя ваш автомобиль в идеальном состоянии.</li>
+                <li>Все работы выполняются в эстетически привлекательной обстановке, чтобы вы чувствовали себя комфортно и уверенно.</li>
+                <li>Наша цель — предоставить вам лучший сервис и сделать ваш опыт ремонта приятным и беззаботным.</li>
+            </ul>
+`,
+            `<h2>Современные домкраты для подъема автомобиля</h2>
+<b>Технологии и безопасность</b>
+<ul>
+    <li>Мы применяем новейшие модели домкратов, обеспечивающие безопасный и эффективный подъем автомобиля.</li>
+    <li>Домкраты оснащены системами безопасности для предотвращения случайного опускания автомобиля.</li>
+</ul>
+
+<b>Опыт и надежность</b>
+<ul>
+    <li>Наши специалисты прошли обучение и имеют опыт работы с современными домкратами.</li>
+    <li>Ваш автомобиль в надежных руках во время подъема с помощью наших домкратов.</li>
+</ul>
+
+`,
+            `<h2>Сварочные работы для деталей автомобиля</h2>
+<b>Качественная сварка</b>
+<ul>
+    <li>Свариваем детали, включая заднюю стойку.</li>
+    <li>Используем современные аппараты для прочных соединений.</li>
+</ul>
+
+<b>Опытные специалисты</b>
+<ul>
+    <li>Опытные сварщики гарантируют качество и долговечность.</li>
+</ul>
+
+<b>Широкий спектр услуг</b>
+<ul>
+    <li>Можем сварить заднюю стойку и другие детали.</li>
+    <li>Услуги помогают увеличить срок службы автомобиля.</li>
+</ul>
+`
+        ];
+
+        // Список путей к изображениям
+        const imagePaths = [
+            './data/photos/repair_suspension_1.jpg',
+            './data/photos/repair_suspension_2.jpg',
+            './data/photos/repair_suspension_3.jpg'
+        ];
+
+        // Текущий индекс изображения
+        let currentIndex = 0;
+
+        // Обновление изображения и описания
+        function updateContent() {
+            const imageElement = document.getElementById('currentImage');
+            const descriptionElement = document.getElementById('description_block_repair');
+
+            imageElement.src = imagePaths[currentIndex];
+            descriptionElement.innerHTML = descriptions[currentIndex];  
+}
+
+        // Переключение на следующее изображение
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imagePaths.length;
+            updateContent();
+        }
+
+        // Переключение на предыдущее изображение
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
+            updateContent();
+        }
+
+    window.onload = function() {
+    updateContent();
+};
+
+var logo = document.getElementById('logo');
+
+// Добавьте обработчик событий 'click' к элементу
+logo.addEventListener('click', function() {
+    // Перенаправьте пользователя на страницу 'index.html' при нажатии
+    window.location.href = 'index.html';
+});
+    </script>
+</body>
+
+</html>

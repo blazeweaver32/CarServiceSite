@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+<body>
+
+    <div id="map-block" style="display: flex; align-items: center; padding: 20px;">
+        <div id="address" style="flex: 1; padding-right: 20px;">
+            <h1 style="font-size: 48px;">Наш Адрес</h1>
+            <p>С. Красный рог, Улица Брянская, д14</p>
+            <p>Контакный номер: 89532837138 Михаил</p>
+            <button_contant onclick="redirectToLink()">Telegram</button_contant>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac021768d254f610466fccb84b7e99c2459d3324862d25d5075ef4ef174b83395&amp;width=100%25&amp;height=240&amp;lang=ru_RU&amp;scroll=true"></script>
+
+    <script>
+    var logo = document.getElementById('logo');
+
+
+    logo.addEventListener('click', function() {
+
+        window.location.href = 'index.html';
+    });
+
+        function redirectToLink() {
+        window.location.href = "https://t.me/prostomishanya32";
+    }
+
+    </script>
+</body>
+
+</html>

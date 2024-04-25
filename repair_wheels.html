@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./data/photos/logo.svg" type="image/svg+xml">
+    <title>CarService</title>
+</head>
+
+<body>
+<div id="topNavLine">
+<div id="left-section">
+    <img src="./data/photos/logo.svg" alt="Логотип" id="logo">
+    <a href="for_me.html">О нас</a>
+    <a href="feedback.html" style="margin-left: 10px;">Отзывы</a>
+</div>
+    <div id="title">Автосервис Четырка Моторс</div>
+    <a href="price.html" style="margin-right: 10px;">Цены</a>
+    <div id="right-section"><a href="map.html" >Контакты</a>
+
+</div>
+</div>
+    <main_title_repair><h1>Выездной ремонт колес</h1></main_title_repair>
+    <main_blocks>
+
+        <div class="item_block_repair" id="image-container">
+            <img id="currentImage" src="./data/photos/image1.jpg" alt="Изображение 1">
+        </div>
+
+ 
+        <div class="item_block_repair description-container" id="description_block_repair">
+            Выберите изображение слева, чтобы увидеть описание.
+        </div>
+    </main_blocks>
+
+    <script>
+        const descriptions = [
+            `
+<h2>Выездной ремонт колес</h2>
+<ul>
+    <li>Мы приезжаем к вам для оперативного ремонта колес на месте.</li>
+    <li>Наши специалисты быстро устранят проколы, порезы и другие дефекты шин.</li>
+    <li>Осуществляем балансировку колес для плавного и безопасного движения.</li>
+    <li>Выездные работы выполняем в удобное для вас время и место.</li>
+</ul>
+    
+
+`
+
+        ];
+
+        // Список путей к изображениям
+        const imagePaths = [
+            './data/photos/repair_wheels_1.jpg'
+
+        ];
+
+        // Текущий индекс изображения
+        let currentIndex = 0;
+
+        // Обновление изображения и описания
+        function updateContent() {
+            const imageElement = document.getElementById('currentImage');
+            const descriptionElement = document.getElementById('description_block_repair');
+
+            imageElement.src = imagePaths[currentIndex];
+            descriptionElement.innerHTML = descriptions[currentIndex];  
+}
+
+        // Переключение на следующее изображение
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imagePaths.length;
+            updateContent();
+        }
+
+        // Переключение на предыдущее изображение
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
+            updateContent();
+        }
+
+    window.onload = function() {
+    updateContent();
+};
+
+var logo = document.getElementById('logo');
+
+// Добавьте обработчик событий 'click' к элементу
+logo.addEventListener('click', function() {
+    // Перенаправьте пользователя на страницу 'index.html' при нажатии
+    window.location.href = 'index.html';
+});
+    </script>
+</body>
+
+</html>
